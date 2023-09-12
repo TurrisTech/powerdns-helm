@@ -57,17 +57,20 @@ affinity: {}
 ## Defaults: https://github.com/bitnami/charts/blob/master/bitnami/mariadb/values.yaml
 ##
 mariadb:
-  db:
-    user: powerdns
+  architecture: replication
+  auth:
+    rootPassword: powerdns
+    database: powerdns
+    username: powerdns
     password: powerdns
-    name: powerdns
-  master:
+    replicationPassword: powerdns
+  primary:
     persistence:
       enabled: true
       accessModes:
         - ReadWriteOnce
       size: 8Gi
-  slave:
+  secondary:
     persistence:
       enabled: true
       accessModes:
